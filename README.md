@@ -1,4 +1,4 @@
-# 🧜‍♀️ Diagrams-as-Code Pipeline (parii_plots) 
+# 🧜‍♀️ Diagrams-as-Code Pipeline parii_plots 
 
 A Python-based pipeline for creating infrastructure diagrams using Mermaid.js with custom local icon support for AWS and Azure services.
 
