@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph "Azure AI Platform"
+        A["{{AZURE_ML}}<br/>Azure ML<br/>Model Training"]
+        B["{{FOUNDRY}}<br/>AI Foundry<br/>MLOps Hub"]
+        C["{{AZURE_OPENAI}}<br/>Azure OpenAI<br/>GPT Models"]
+    end
+    
+    subgraph "Deployment"
+        D["{{LAMBDA}}<br/>Lambda<br/>Inference API"]
+        E["{{EC2}}<br/>EC2<br/>Model Serving"]
+    end
+    
+    subgraph "Data & Storage"
+        F["{{S3}}<br/>S3<br/>Model Store"]
+        G["{{DYNAMODB}}<br/>DynamoDB<br/>Metadata"]
+    end
+    
+    A --> B
+    B --> C
+    C --> F
+    F --> D
+    F --> E
+    D --> G
+    E --> G
+    
+    style A fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style B fill:#0078D4,stroke:#003366,stroke-width:3px,color:#fff
+    style C fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style D fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style E fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style F fill:#569A31,stroke:#232F3E,stroke-width:2px,color:#fff
+    style G fill:#4053D6,stroke:#232F3E,stroke-width:2px,color:#fff

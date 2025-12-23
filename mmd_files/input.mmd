@@ -1,0 +1,14 @@
+flowchart LR
+    A["{{EC2}}<br/>EC2 Instance"] --> B["{{FOUNDRY}}<br/>Data Lake"]
+    B --> C["{{LAMBDA}}<br/>Lambda Function"]
+    C --> D["{{DYNAMODB}}<br/>DynamoDB Table"]
+    
+    E["{{RDS}}<br/>RDS Database"] --> A
+    D --> F["{{S3}}<br/>S3 Storage"]
+    
+    style A fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style B fill:#3F8624,stroke:#232F3E,stroke-width:2px,color:#fff
+    style C fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style D fill:#4053D6,stroke:#232F3E,stroke-width:2px,color:#fff
+    style E fill:#3F8624,stroke:#232F3E,stroke-width:2px,color:#fff
+    style F fill:#569A31,stroke:#232F3E,stroke-width:2px,color:#fff

@@ -1,0 +1,7 @@
+flowchart LR
+    A["{{EC2}}<br/>Web Server"] --> B["{{LAMBDA}}<br/>API Handler"]
+    B --> C["{{DYNAMODB}}<br/>User Data"]
+    
+    style A fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style B fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style C fill:#4053D6,stroke:#232F3E,stroke-width:2px,color:#fff

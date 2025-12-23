@@ -1,0 +1,41 @@
+flowchart TB
+    subgraph "Data Sources"
+        A["{{S3}}<br/>Data Lake<br/>(Raw Data)"]
+        B["{{AZURE_COGNITIVE}}<br/>Cognitive Services<br/>(Pre-processing)"]
+    end
+    
+    subgraph "AI Development Platform"
+        C["{{FOUNDRY}}<br/>Azure AI Foundry<br/>(AI Hub)"]
+        D["{{AZURE_ML}}<br/>Azure Machine Learning<br/>(Model Training)"]
+        E["{{AZURE_AI_STUDIO}}<br/>Azure AI Studio<br/>(Development)"]
+    end
+    
+    subgraph "AI Services"
+        F["{{AZURE_OPENAI}}<br/>Azure OpenAI<br/>(LLM Services)"]
+        G["{{AZURE_BOT}}<br/>Bot Services<br/>(Conversational AI)"]
+    end
+    
+    subgraph "Applications"
+        H["{{LAMBDA}}<br/>Serverless Apps"]
+        I["{{EC2}}<br/>Web Applications"]
+    end
+    
+    A --> C
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+    E --> F
+    F --> G
+    F --> H
+    G --> I
+    
+    style A fill:#569A31,stroke:#232F3E,stroke-width:2px,color:#fff
+    style B fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style C fill:#0078D4,stroke:#003366,stroke-width:3px,color:#fff
+    style D fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style E fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style F fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style G fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style H fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style I fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
