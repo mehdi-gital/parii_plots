@@ -56,7 +56,7 @@ htmlcov/
 ._*
 
 # Output files (generated diagrams)
-mmd_exports/*.png
+# mmd_exports/*.png
 *.png
 
 # Keep directory structure
