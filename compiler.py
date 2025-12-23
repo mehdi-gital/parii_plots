@@ -25,13 +25,32 @@ except ImportError:
 
 # Icon mapping dictionary - maps shorthand tags to local SVG paths
 ICON_MAP: Dict[str, str] = {
-    # AWS Icons
+    # AWS Icons - Compute
     "EC2": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Compute/64/Arch_Amazon-EC2_64.svg",
     "LAMBDA": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Compute/64/Arch_AWS-Lambda_64.svg",
+    
+    # AWS Icons - Database
     "AURORA": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Database/64/Arch_Amazon-Aurora_64.svg",
     "DYNAMODB": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Database/64/Arch_Amazon-DynamoDB_64.svg",
     "RDS": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Database/64/Arch_Amazon-RDS_64.svg",
+    "ELASTICACHE": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Database/64/Arch_Amazon-ElastiCache_64.svg",
+    
+    # AWS Icons - Storage
     "S3": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg",
+    
+    # AWS Icons - API & Networking
+    "API_GATEWAY": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Networking-Content-Delivery/64/Arch_Amazon-API-Gateway_64.svg",
+    "WAF": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Security-Identity-Compliance/64/Arch_AWS-WAF_64.svg",
+    "ACM": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Security-Identity-Compliance/64/Arch_AWS-Private-Certificate-Authority_64.svg",
+    
+    # AWS Icons - Monitoring & Logging
+    "CLOUDWATCH": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Management-Governance/64/Arch_Amazon-CloudWatch_64.svg",
+    "XRAY": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Developer-Tools/64/Arch_AWS-X-Ray_64.svg",
+    "SNS": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_App-Integration/64/Arch_Amazon-Simple-Notification-Service_64.svg",
+    
+    # AWS Icons - Security & Infrastructure
+    "IAM": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Security-Identity-Compliance/64/Arch_AWS-IAM-Identity-Center_64.svg",
+    "VPC": "icons/AWS_Icons/Architecture-Service-Icons_07312025/Arch_Networking-Content-Delivery/64/Arch_Amazon-VPC-Lattice_64.svg",
     
     # Azure Icons - AI & Machine Learning
     "AZURE_ML": "icons/Azure_Icons/Icons/ai + machine learning/10166-icon-service-Machine-Learning.svg",
@@ -39,6 +58,25 @@ ICON_MAP: Dict[str, str] = {
     "AZURE_OPENAI": "icons/Azure_Icons/Icons/ai + machine learning/03438-icon-service-Azure-OpenAI.svg",
     "AZURE_COGNITIVE": "icons/Azure_Icons/Icons/ai + machine learning/10162-icon-service-Cognitive-Services.svg",
     "AZURE_BOT": "icons/Azure_Icons/Icons/ai + machine learning/10165-icon-service-Bot-Services.svg",
+    
+    # Azure Icons - Compute
+    "AZURE_FUNC": "icons/Azure_Icons/Icons/compute/10029-icon-service-Function-Apps.svg",
+    
+    # Azure Icons - Database & Storage
+    "AZURE_COSMOS": "icons/Azure_Icons/Icons/databases/10121-icon-service-Azure-Cosmos-DB.svg",
+    "AZURE_STORAGE": "icons/Azure_Icons/Icons/storage/10086-icon-service-Storage-Accounts.svg",
+    "AZURE_SQL": "icons/Azure_Icons/Icons/databases/02390-icon-service-Azure-SQL.svg",
+    
+    # Azure Icons - API & Integration
+    "AZURE_API": "icons/Azure_Icons/Icons/integration/10042-icon-service-API-Management-Services.svg",
+    
+    # Azure Icons - Identity
+    "AZURE_ENTRA": "icons/Azure_Icons/Icons/identity/02854-icon-service-Entra-Connect.svg",
+    "AZURE_KEYVAULT": "icons/Azure_Icons/Icons/security/10245-icon-service-Key-Vaults.svg",
+    
+    # Azure Icons - Monitoring
+    "AZURE_INSIGHTS": "icons/Azure_Icons/Icons/devops/00012-icon-service-Application-Insights.svg",
+    "AZURE_MONITOR": "icons/Azure_Icons/Icons/monitor/00001-icon-service-Monitor.svg",
     
     # Add more icon mappings as needed
     "FOUNDRY": "icons/Azure_Icons/Icons/ai + machine learning/03513-icon-service-AI-Studio.svg",  # Using Azure AI Studio as AI Foundry

@@ -56,8 +56,9 @@ htmlcov/
 ._*
 
 # Output files (generated diagrams)
-mmd_exports/*.png
+# Allow mmd_exports PNGs but exclude others
 *.png
+!mmd_exports/*.png
 
 # Keep directory structure
 !.gitkeep
