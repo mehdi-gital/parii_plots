@@ -156,25 +156,13 @@ ICON_MAP: Dict[str, str] = {
 }
 ```
 
-### Using Icons in Mermaid
-
-In your `.mmd` file (stored in `mmd_files/`), use the shorthand syntax with HTML line breaks:
-
-```mermaid
-flowchart LR
-    A["{{EC2}}<br/>EC2 Instance"] --> B["{{LAMBDA}}<br/>Lambda Function"]
-    B --> C["{{DYNAMODB}}<br/>DynamoDB Table"]
-```
-
-The compiler will replace `{{EC2}}` with an embedded base64-encoded SVG image tag.
-
 ## Example Architectures
 
 ### AWS Serverless REST API
 
 A production-grade serverless API architecture demonstrating AWS best practices:
 
-![AWS Serverless API Architecture](mmd_exports/aws_serverless_api.png)
+<img src="mmd_exports/aws_serverless_api.png" width="50%" alt="AWS Serverless API Architecture">
 
 ```mermaid
 flowchart TB
@@ -215,7 +203,7 @@ python3 compiler.py aws_serverless_api.mmd
 
 A parallel serverless architecture on Azure using Function Apps and related services:
 
-![Azure Functions API Architecture](mmd_exports/azure_function_api.png)
+<img src="mmd_exports/azure_function_api.png" width="50%" alt="Azure Functions API Architecture">
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor':'#ffffff', 'primaryBorderColor':'#cccccc', 'background':'#ffffff', 'mainBkg':'#ffffff', 'clusterBkg':'#ffffff'}}}%%
