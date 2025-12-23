@@ -1,0 +1,33 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor':'#ffffff', 'primaryBorderColor':'#cccccc', 'background':'#ffffff', 'mainBkg':'#ffffff', 'clusterBkg':'#ffffff'}}}%%
+flowchart TB
+    WEB["🌐 Client"]
+    
+    APIM["{{AZURE_API}}<br/>API Mgmt"]
+    ENTRA["{{AZURE_ENTRA}}<br/>Entra ID"]
+    
+    FUNC["{{AZURE_FUNC}}<br/>Function"]
+    
+    COSMOS["{{AZURE_COSMOS}}<br/>Cosmos DB"]
+    STORAGE["{{AZURE_STORAGE}}<br/>Blob Store"]
+    
+    INSIGHTS["{{AZURE_INSIGHTS}}<br/>App Insights"]
+    MONITOR["{{AZURE_MONITOR}}<br/>Monitor"]
+    
+    WEB -->|HTTPS| APIM
+    APIM -->|Auth| ENTRA
+    APIM -->|Business Logic| FUNC
+    
+    FUNC --> COSMOS
+    FUNC --> STORAGE
+    
+    FUNC --> INSIGHTS
+    INSIGHTS --> MONITOR
+    
+    style WEB fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style APIM fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style ENTRA fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style FUNC fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style COSMOS fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style STORAGE fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style INSIGHTS fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style MONITOR fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff

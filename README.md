@@ -168,26 +168,95 @@ flowchart LR
 
 The compiler will replace `{{EC2}}` with an embedded base64-encoded SVG image tag.
 
-## Example
+## Example Architectures
 
-The included `mmd_files/input.mmd` demonstrates a sample architecture:
+### AWS Serverless REST API
+
+A production-grade serverless API architecture demonstrating AWS best practices:
+
+![AWS Serverless API Architecture](mmd_exports/aws_serverless_api.png)
 
 ```mermaid
-flowchart LR
-    A["{{EC2}}<br/>EC2 Instance"] --> B["{{FOUNDRY}}<br/>Data Lake"]
-    B --> C["{{LAMBDA}}<br/>Lambda Function"]
-    C --> D["{{DYNAMODB}}<br/>DynamoDB Table"]
+flowchart TB
+    Client["🌐 Client"]
     
-    E["{{RDS}}<br/>RDS Database"] --> A
-    D --> F["{{S3}}<br/>S3 Storage"]
+    WAF["{{WAF}}<br/>WAF"]
+    APIGW["{{API_GATEWAY}}<br/>API Gateway"]
+    
+    AuthLambda["{{LAMBDA}}<br/>Auth Lambda"]
+    APIHandler["{{LAMBDA}}<br/>API Handler"]
+    
+    DDB["{{DYNAMODB}}<br/>DynamoDB"]
+    Cache["{{ELASTICACHE}}<br/>ElastiCache"]
+    S3["{{S3}}<br/>S3 Storage"]
+    
+    CloudWatch["{{CLOUDWATCH}}<br/>CloudWatch"]
+    SNS["{{SNS}}<br/>SNS Alerts"]
+    
+    Client -->|HTTPS| WAF
+    WAF --> APIGW
+    APIGW -->|Auth Check| AuthLambda
+    APIGW -->|Business Logic| APIHandler
+    
+    APIHandler --> DDB
+    APIHandler --> Cache
+    APIHandler --> S3
+    
+    APIHandler --> CloudWatch
+    CloudWatch --> SNS
 ```
 
 Compile it:
 ```bash
-python3 compiler.py input.mmd
+python3 compiler.py aws_serverless_api.mmd
 ```
 
-Output: `mmd_exports/input.png` with embedded AWS icons at 3x resolution.
+### Azure Functions REST API
+
+A parallel serverless architecture on Azure using Function Apps and related services:
+
+![Azure Functions API Architecture](mmd_exports/azure_function_api.png)
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor':'#ffffff', 'primaryBorderColor':'#cccccc', 'background':'#ffffff', 'mainBkg':'#ffffff', 'clusterBkg':'#ffffff'}}}%%
+flowchart TB
+    WEB["🌐 Client"]
+    
+    APIM["{{AZURE_API}}<br/>API Mgmt"]
+    ENTRA["{{AZURE_ENTRA}}<br/>Entra ID"]
+    
+    FUNC["{{AZURE_FUNC}}<br/>Function"]
+    
+    COSMOS["{{AZURE_COSMOS}}<br/>Cosmos DB"]
+    STORAGE["{{AZURE_STORAGE}}<br/>Blob Store"]
+    
+    INSIGHTS["{{AZURE_INSIGHTS}}<br/>App Insights"]
+    MONITOR["{{AZURE_MONITOR}}<br/>Monitor"]
+    
+    WEB -->|HTTPS| APIM
+    APIM -->|Auth| ENTRA
+    APIM -->|Business Logic| FUNC
+    
+    FUNC --> COSMOS
+    FUNC --> STORAGE
+    
+    FUNC --> INSIGHTS
+    INSIGHTS --> MONITOR
+    
+    style WEB fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style APIM fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style ENTRA fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style FUNC fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style COSMOS fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style STORAGE fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style INSIGHTS fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+    style MONITOR fill:#ffffff,stroke:#cccccc,stroke-width:2px,color:#000
+```
+
+Compile it:
+```bash
+python3 compiler.py azure_function_api.mmd
+```
 
 ## 📚 Additional Documentation
 

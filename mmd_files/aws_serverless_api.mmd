@@ -1,0 +1,38 @@
+flowchart TB
+    WEB["🌐 Client"]
+    
+    APIGW["{{API_GATEWAY}}<br/>API Gateway"]
+    WAF["{{WAF}}<br/>WAF"]
+    
+    AUTH["{{LAMBDA}}<br/>Auth"]
+    API["{{LAMBDA}}<br/>API Handler"]
+    
+    DDB["{{DYNAMODB}}<br/>DynamoDB"]
+    CACHE["{{ELASTICACHE}}<br/>Cache"]
+    S3["{{S3}}<br/>S3"]
+    
+    CW["{{CLOUDWATCH}}<br/>Logs"]
+    SNS["{{SNS}}<br/>Alerts"]
+    
+    WEB -->|HTTPS| WAF
+    WAF --> APIGW
+    APIGW -->|Auth| AUTH
+    APIGW -->|Business Logic| API
+    
+    API --> CACHE
+    CACHE -->|Miss| DDB
+    API --> S3
+    
+    API --> CW
+    CW -->|Errors| SNS
+    
+    style WEB fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style APIGW fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style WAF fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style AUTH fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style API fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style DDB fill:#4053D6,stroke:#232F3E,stroke-width:2px,color:#fff
+    style CACHE fill:#4053D6,stroke:#232F3E,stroke-width:2px,color:#fff
+    style S3 fill:#569A31,stroke:#232F3E,stroke-width:2px,color:#fff
+    style CW fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
+    style SNS fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#fff
